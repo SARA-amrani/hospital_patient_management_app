@@ -14,11 +14,15 @@ import java.util.Date;
 public class Patient {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String name;
+    private String nom;
     @Temporal(TemporalType.DATE)
     private Date dateNaissance;
     private boolean malade;
     @OneToMany(mappedBy = "patient", fetch = FetchType.LAZY)
     private Collection<RendezVous> rendezVous;
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
 
 }
