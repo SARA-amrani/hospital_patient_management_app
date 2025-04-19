@@ -1,5 +1,6 @@
 package ma.enset.hospital.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,5 +18,6 @@ public class Consultation {
     private String rapport;
     //type de relation : OneToOne
     @OneToOne
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private RendezVous rendezVous;
 }
