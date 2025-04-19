@@ -1,9 +1,7 @@
 package ma.enset.hospital;
 
-import ma.enset.hospital.entities.Medecin;
-import ma.enset.hospital.entities.Patient;
-import ma.enset.hospital.entities.RendezVous;
-import ma.enset.hospital.entities.StatusRDV;
+import ma.enset.hospital.entities.*;
+import ma.enset.hospital.repository.ConsultationRepository;
 import ma.enset.hospital.repository.MedecinRepository;
 import ma.enset.hospital.repository.PatientRepository;
 import ma.enset.hospital.repository.RendezvousRepository;
@@ -27,7 +25,8 @@ public class HospitalApplication {
     CommandLineRunner start(
             PatientRepository patientRepository,
             MedecinRepository medecinRepository,
-            RendezvousRepository rendezvousRepository) {
+            RendezvousRepository rendezvousRepository,
+            ConsultationRepository consultationRepository) {
         return args -> {
             //Ajouter des patients
             Stream.of("SARA","AYA","HOUDA")
@@ -60,6 +59,14 @@ public class HospitalApplication {
             rendezVous.setMedecin(medecin);
             rendezVous.setPatient(patient);
             rendezvousRepository.save(rendezVous);
+
+            // Ajout d'une consultation
+            RendezVous rendezVous1= rendezvousRepository.findById(1L).orElse(null);
+            Consultation consultation = new Consultation();
+            consultation.setDateConsultation(new Date());
+            consultation.setRendezVous(rendezVous1);
+            consultation.setRapport("Rapport de la consultation .....");
+            consultationRepository.save(consultation);
 
         };
     }
