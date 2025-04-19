@@ -15,6 +15,7 @@ public class RendezVous {
     private Long id;
     private Date date;
     // TYPE enum
+    @Enumerated(EnumType.STRING)
     private StatusRDV status;
     @ManyToOne
     private Patient patient;

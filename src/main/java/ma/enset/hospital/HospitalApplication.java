@@ -2,6 +2,8 @@ package ma.enset.hospital;
 
 import ma.enset.hospital.entities.Medecin;
 import ma.enset.hospital.entities.Patient;
+import ma.enset.hospital.entities.RendezVous;
+import ma.enset.hospital.entities.StatusRDV;
 import ma.enset.hospital.repository.MedecinRepository;
 import ma.enset.hospital.repository.PatientRepository;
 import ma.enset.hospital.repository.RendezvousRepository;
@@ -46,6 +48,18 @@ public class HospitalApplication {
                         medecinRepository.save(medecin);
                     });
 
+             // Creation d'un rendez-vous
+            Patient patient = patientRepository.findById(1L).orElse(null);
+            Patient patient1 = patientRepository.findByNom("SARA");
+
+            Medecin medecin = medecinRepository.findByNom("NEZHA");
+
+            RendezVous rendezVous = new RendezVous();
+            rendezVous.setDate(new Date());
+            rendezVous.setStatus(StatusRDV.PENDING);
+            rendezVous.setMedecin(medecin);
+            rendezVous.setPatient(patient);
+            rendezvousRepository.save(rendezVous);
 
         };
     }
