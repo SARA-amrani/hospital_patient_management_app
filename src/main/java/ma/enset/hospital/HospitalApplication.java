@@ -5,6 +5,7 @@ import ma.enset.hospital.repository.ConsultationRepository;
 import ma.enset.hospital.repository.MedecinRepository;
 import ma.enset.hospital.repository.PatientRepository;
 import ma.enset.hospital.repository.RendezvousRepository;
+import ma.enset.hospital.service.IHospitalService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -22,11 +23,10 @@ public class HospitalApplication {
     }
 
     @Bean
-    CommandLineRunner start(
-            PatientRepository patientRepository,
-            MedecinRepository medecinRepository,
-            RendezvousRepository rendezvousRepository,
-            ConsultationRepository consultationRepository) {
+    CommandLineRunner start(IHospitalService hospitalService,
+                            PatientRepository patientRepository,
+                            MedecinRepository medecinRepository,
+                            RendezvousRepository rendezvousRepository) {
         return args -> {
             //Ajouter des patients
             Stream.of("SARA","AYA","HOUDA")
@@ -35,7 +35,7 @@ public class HospitalApplication {
                         patient.setNom(name);
                         patient.setDateNaissance(new Date());
                         patient.setMalade(false);
-                        patientRepository.save(patient);
+                        hospitalService.savePatient(patient);
                     });
             //Ajouter des medecins
             Stream.of("NEZHA","OUSSAMA","RIM")
@@ -44,7 +44,7 @@ public class HospitalApplication {
                         medecin.setNom(name);
                         medecin.setEmail(name+"@gmail.com");
                         medecin.setSpecialite(Math.random()>0.5?"Cardio":"Dentiste");
-                        medecinRepository.save(medecin);
+                        hospitalService.saveMedecin(medecin);
                     });
 
              // Creation d'un rendez-vous
@@ -58,15 +58,17 @@ public class HospitalApplication {
             rendezVous.setStatus(StatusRDV.PENDING);
             rendezVous.setMedecin(medecin);
             rendezVous.setPatient(patient);
-            rendezvousRepository.save(rendezVous);
+            RendezVous saveRDV = hospitalService.saveRDV(rendezVous);
+            System.out.println(saveRDV.getId());
+
 
             // Ajout d'une consultation
-            RendezVous rendezVous1= rendezvousRepository.findById(1L).orElse(null);
+            RendezVous rendezVous1= rendezvousRepository.findAll().get(0);
             Consultation consultation = new Consultation();
             consultation.setDateConsultation(new Date());
             consultation.setRendezVous(rendezVous1);
             consultation.setRapport("Rapport de la consultation .....");
-            consultationRepository.save(consultation);
+            hospitalService.saveConsultation(consultation);
 
         };
     }
