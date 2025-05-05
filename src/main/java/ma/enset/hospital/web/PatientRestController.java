@@ -18,7 +18,6 @@ public class PatientRestController {
         return patientRepository.findAll();
     }
 }
-
-// cela si on consulte notre port on va vois la liste des patients en format Json
+// cela si on consulte notre port "http://localhost:8086/patients" on va vois la liste des patients en format Json
 
 

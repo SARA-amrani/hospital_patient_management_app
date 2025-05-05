@@ -21,13 +21,15 @@ public class HospitalServiceImpl implements IHospitalService {
     private RendezvousRepository rendezvousRepository;
     private ConsultationRepository consultationRepository;
 
-    public HospitalServiceImpl(PatientRepository patientRepository, MedecinRepository medecinRepository, RendezvousRepository rendezvousRepository, ConsultationRepository consultationRepository) {
+    public HospitalServiceImpl(PatientRepository patientRepository,
+                               MedecinRepository medecinRepository,
+                               RendezvousRepository rendezvousRepository,
+                               ConsultationRepository consultationRepository) {
         this.patientRepository = patientRepository;
         this.medecinRepository = medecinRepository;
         this.rendezvousRepository = rendezvousRepository;
         this.consultationRepository = consultationRepository;
     }
-
 
     @Override
     public Patient savePatient(Patient patient) {

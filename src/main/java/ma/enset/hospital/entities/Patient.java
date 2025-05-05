@@ -20,6 +20,4 @@ public class Patient {
     private boolean malade;
     @OneToMany(mappedBy = "patient", fetch = FetchType.LAZY)
     private Collection<RendezVous> rendezVous;
-
-
 }

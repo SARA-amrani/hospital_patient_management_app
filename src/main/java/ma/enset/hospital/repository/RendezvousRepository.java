@@ -1,6 +1,5 @@
 package ma.enset.hospital.repository;
 
-import ma.enset.hospital.entities.Patient;
 import ma.enset.hospital.entities.RendezVous;
 import org.springframework.data.jpa.repository.JpaRepository;
 
