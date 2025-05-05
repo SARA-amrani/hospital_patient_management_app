@@ -21,8 +21,5 @@ public class Patient {
     @OneToMany(mappedBy = "patient", fetch = FetchType.LAZY)
     private Collection<RendezVous> rendezVous;
 
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
 
 }
