@@ -19,4 +19,6 @@ public class PatientRestController {
     }
 }
 
+// cela si on consulte notre port on va vois la liste des patients en format Json
+
 
