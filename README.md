@@ -55,6 +55,7 @@ L’application commence avec une base de données embarquée H2, puis migre ver
 ### 2. Architecture du projet
 
 Voici une vue complète de l’architecture du projet :
+
 ![](src/main/captures/photo4.png)
 
 Structure du projet :
@@ -178,13 +179,12 @@ Configurez la base de données H2 dans `src/main/resources/application.propertie
 
 
 
-Conclusion
+## Conclusion
 Ce projet nous a permis de comprendre la puissance de l’écosystème Spring Boot dans la gestion d’une application métier complexe avec persistance de données. Grâce à JPA, Hibernate, et Spring Data, le code est plus clair, concis et performant. Il ouvre également la porte vers des applications plus évoluées avec Spring Security, Thymeleaf, ou encore React/Angular en front-end.
 
-🙌 Remerciements
-Merci à M. Mohamed Youssfi pour ses explications claires et sa vidéo très pédagogique :
-📺 Lien vers la vidéo YouTube
-
-Auteur
+## Remerciements
+Merci à M. Mohamed Youssfi pour ses explications claires et ses vidéos très pédagogiques.
+## Auteur
 Réalisé par : [EL AMRANI SARA]
+
 Date : [Mars 2025]
