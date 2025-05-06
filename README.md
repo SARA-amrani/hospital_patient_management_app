@@ -175,18 +175,24 @@ Configurez la base de données H2 dans `src/main/resources/application.propertie
 ### 5. Migration de H2 vers MySQL
 ➤ Configuration application.properties
 ![](src/main/captures/photo28.png)
+
 ![](src/main/captures/photo29.png)
+
 - La table patient
-  ![](src/main/captures/photo30.png)
+
+![](src/main/captures/photo30.png)
 
 - La table medecin
-  ![](src/main/captures/photo31.png)
+
+![](src/main/captures/photo31.png)
 
 - La table rendz-vous
-  ![](src/main/captures/photo32.png)
+
+![](src/main/captures/photo32.png)
 
 - La table consultation
-  ![](src/main/captures/photo33.png)
+
+![](src/main/captures/photo33.png)
 
 ## Conclusion
 Ce projet nous a permis de comprendre la puissance de l’écosystème Spring Boot dans la gestion d’une application métier complexe avec persistance de données. Grâce à JPA, Hibernate, et Spring Data, le code est plus clair, concis et performant. Il ouvre également la porte vers des applications plus évoluées avec Spring Security, Thymeleaf, ou encore React/Angular en front-end.
